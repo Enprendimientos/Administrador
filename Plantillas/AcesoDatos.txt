@@ -1,0 +1,146 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using Fwp.common;
+using <NombreProyecto>.Common.Data;
+using <NombreProyecto>.Common.Nominas;
+
+namespace <NombreProyecto>.DataAccess.<__modulo>
+{
+    public class da_<nomfisico>: SCDataAccess<co_<nomfisico>>
+    {
+        public da_<nomfisico>(FWPTransaction Transaccion)
+        {
+            this.Trans = Transaccion;
+        }
+
+        public co_<nomfisico> GetData(int id)
+        {
+            try
+            {
+                return this.ReadDataGeneric(id, "pa08_<nomfisico>_sel", this.Trans);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public IList<co_<nomfisico>> GetData(co_<nomfisico> <alias>)
+        {
+            try
+            {
+                return this.ReadDataGeneric(<alias>, "pa08_<nomfisico>_selList", this.Trans);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public co_<nomfisico> Insert(co_<nomfisico> <alias>)
+        {
+            try
+            {
+                return this.CreateDataGeneric(<alias>, "pa08_<nomfisico>_in", this.Trans);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public IList<co_<nomfisico>> Insert(IList<co_<nomfisico>> <alias>)
+        {
+            try
+            {
+                return this.CreateDataGeneric(<alias>, "pa08_<nomfisico>_in", this.Trans);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void Update(co_<nomfisico> <alias>)
+        {
+            try
+            {
+                this.UpdateDataGeneric(<alias>, "pa08_<nomfisico>_ac", this.Trans);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void Update(IList<co_<nomfisico>> <alias>)
+        {
+            try
+            {
+                this.UpdateDataGeneric(<alias>, "pa08_<nomfisico>_ac", this.Trans);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void Delete(int id)
+        {
+            try
+            {
+                this.DeleteDataGeneric(id, "pa08_<nomfisico>_ac", this.Trans);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void Delete(co_<nomfisico> <alias>)
+        {
+            try
+            {
+                this.DeleteDataGeneric(<alias>, "pa08_<nomfisico>_ac", this.Trans);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public Nomina<co_<nomfisico>_no> GetNomina(co_<nomfisico>_no Nomina)
+        {
+            try
+            {
+                 SCDataAccessNominas<co_<nomfisico>_no> nom = new SCDataAccessNominas<co_<nomfisico>_no>();
+                 return nom.ReadDataGeneric(Nomina, "pa08_<nomfisico>_no", this.Trans);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public DataSet GetInforme(String SQLText)
+        {
+            try
+            {
+                SCDataAccessInformes<String> inf = new SCDataAccessInformes<String>();
+                return inf.ReadDataGeneric(SQLText, this.Trans);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public IList<T> GetInforme<T>(T Informe){
+            //SCDataAccessInformes<T> inf = new SCDataAccessInformes<T>();
+            //return inf.ReadDataGeneric(Informe, "", this.Trans);
+            return new List<T>();
+        } 
+
+    }
+}

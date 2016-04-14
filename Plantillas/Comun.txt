@@ -1,0 +1,20 @@
+using System;
+using Fwp.common;
+using System.ComponentModel;
+
+namespace <NombreProyecto>.Common.Data
+{
+    [Serializable()]
+    public class co_<nomfisico> : SCCommon
+    {
+	<constantes>
+
+        public co_<nomfisico>()
+        {
+		<IniciaPropiedadesSCCommonIdDescripcion>
+        }
+
+	<propiedades>
+		
+    }
+}

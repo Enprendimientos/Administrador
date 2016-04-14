@@ -1,0 +1,9 @@
+﻿#unlicensed {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.campoRequired {
+  color: red;
+  font-weight: bold;
+}

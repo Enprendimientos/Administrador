@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{088E65B2-8C81-419A-A1ED-134B594FD56E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Common</RootNamespace>
+    <AssemblyName>Common</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\ControlAcceso\co_ca_asociarperfiles.cs" />
+    <Compile Include="Data\ControlAcceso\co_ca_menu.cs" />
+    <Compile Include="Data\ControlAcceso\co_ca_menuopciones.cs" />
+    <Compile Include="Data\ControlAcceso\co_ca_opciones.cs" />
+    <Compile Include="Data\ControlAcceso\co_ca_perfiles.cs" />
+    <Compile Include="Data\ControlAcceso\co_ca_perfilesopciones.cs" />
+    <Compile Include="Data\ControlAcceso\co_ca_usuarios.cs" />
+    <Compile Include="Data\ControlAcceso\co_ca_usuariospasswords.cs" />
+    <Compile Include="Data\ControlAcceso\co_ca_usuariosperfiles.cs" />
+    <Compile Include="Data\TablasGenerales\co_tg_bancos.cs" />
+    <Compile Include="Data\TablasGenerales\co_tg_bancospaises.cs" />
+    <Compile Include="Data\TablasGenerales\co_tg_bancos_personas.cs" />
+    <Compile Include="Data\TablasGenerales\co_tg_ciudades.cs" />
+    <Compile Include="Data\TablasGenerales\co_tg_comunas.cs" />
+    <Compile Include="Data\TablasGenerales\co_tg_constantes.cs" />
+    <Compile Include="Data\TablasGenerales\co_tg_constantestipos.cs" />
+    <Compile Include="Data\TablasGenerales\co_tg_direcciones.cs" />
+    <Compile Include="Data\TablasGenerales\co_tg_estados_civiles.cs" />
+    <Compile Include="Data\TablasGenerales\co_tg_paises.cs" />
+    <Compile Include="Data\TablasGenerales\co_tg_personas.cs" />
+    <Compile Include="Data\TablasGenerales\co_tg_personas_bancospersonas.cs" />
+    <Compile Include="Data\TablasGenerales\co_tg_personas_direcciones.cs" />
+    <Compile Include="Data\TablasGenerales\co_tg_regiones.cs" />
+    <Compile Include="Data\TablasGenerales\co_tg_sexos.cs" />
+    <Compile Include="Data\TablasGenerales\co_tg_tipos_cuentas.cs" />
+    <Compile Include="Nomina\ControlAcceso\co_ca_menuopciones_no.cs" />
+    <Compile Include="Nomina\ControlAcceso\co_ca_menu_no.cs" />
+    <Compile Include="Nomina\ControlAcceso\co_ca_opciones_no.cs" />
+    <Compile Include="Nomina\ControlAcceso\co_ca_perfilesopciones_no.cs" />
+    <Compile Include="Nomina\ControlAcceso\co_ca_perfiles_no.cs" />
+    <Compile Include="Nomina\ControlAcceso\co_ca_usuariospasswords_no.cs" />
+    <Compile Include="Nomina\ControlAcceso\co_ca_usuariosperfiles_no.cs" />
+    <Compile Include="Nomina\ControlAcceso\co_ca_usuarios_no.cs" />
+    <Compile Include="Nomina\TablasGenerales\co_tg_bancospaises_no.cs" />
+    <Compile Include="Nomina\TablasGenerales\co_tg_bancos_no.cs" />
+    <Compile Include="Nomina\TablasGenerales\co_tg_bancos_personas_no.cs" />
+    <Compile Include="Nomina\TablasGenerales\co_tg_ciudades_no.cs" />
+    <Compile Include="Nomina\TablasGenerales\co_tg_comunas_no.cs" />
+    <Compile Include="Nomina\TablasGenerales\co_tg_constantestipos_no.cs" />
+    <Compile Include="Nomina\TablasGenerales\co_tg_constantes_no.cs" />
+    <Compile Include="Nomina\TablasGenerales\co_tg_direcciones_no.cs" />
+    <Compile Include="Nomina\TablasGenerales\co_tg_estados_civiles_no.cs" />
+    <Compile Include="Nomina\TablasGenerales\co_tg_paises_no.cs" />
+    <Compile Include="Nomina\TablasGenerales\co_tg_personas_bancospersonas_no.cs" />
+    <Compile Include="Nomina\TablasGenerales\co_tg_personas_direcciones_no.cs" />
+    <Compile Include="Nomina\TablasGenerales\co_tg_personas_no.cs" />
+    <Compile Include="Nomina\Negocio\co_tg_personas_no2.cs" />
+    <Compile Include="Nomina\TablasGenerales\co_tg_regiones_no.cs" />
+    <Compile Include="Nomina\TablasGenerales\co_tg_sexos_no.cs" />
+    <Compile Include="Nomina\TablasGenerales\co_tg_tipos_cuentas_no.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SystemFramework\SystemFramework.vbproj">
+      <Project>{798f3010-852a-4c15-884f-3d689b3f491b}</Project>
+      <Name>SystemFramework</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

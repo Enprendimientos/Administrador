@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{798F3010-852A-4C15-884F-3D689B3F491B}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Fwp.SystemFramework</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyMode>None</AssemblyOriginatorKeyMode>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionStrict>Off</OptionStrict>
+    <RootNamespace>
+    </RootNamespace>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <MyType>Windows</MyType>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <PublishUrl>http://localhost/Fwp.SystemFramework/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Fwp.SystemFramework.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>0</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42020,42021,42022,42030,42032,42104,42105,42106,42107,42108,42109,42353,42354,42355</NoWarn>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>Fwp.SystemFramework.xml</DocumentationFile>
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>
+    </DefineConstants>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>0</WarningLevel>
+    <NoWarn>42016,42017,42018,42019,42020,42021,42022,42030,42032,42104,42105,42106,42107,42108,42109,42353,42354,42355</NoWarn>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="FwpServerControls, Version=1.0.3807.32556, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files\MacalPlataforma\AsistentePLG2010\FwpServerControls.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files\MacalPlataforma\AsistentePLG2010\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Older\AccesosDirectos\ad_tg_personasAccesosDirectos.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Older\AccesosDirectos\cm_tg_personasAccesosDirectos.vb" />
+    <Compile Include="Older\AccesosDirectos\cm_tg_personasAccesosDirectos_no.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Older\AccesosDirectos\fn_tg_personasAccesosDirectos.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Older\AccesosDirectos\rn_tg_personasAccesosDirectos.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Older\ClasesBases\cm_estructuraSQL.vb" />
+    <Compile Include="Configuracion\ApplicationConfiguration.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuracion\ApplicationVerifications.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="fwpSyshelp.vb" />
+    <Compile Include="Older\Menu\ad_ca_menu.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Older\Menu\cm_ca_menu.vb" />
+    <Compile Include="Older\Menu\cm_ca_menu_no.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Older\Menu\fn_ca_menu.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Older\Menu\rn_ca_menu.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Older\ClasesBases\ParametrosNomina.vb" />
+    <Compile Include="Older\ClasesBases\SCAccesoDatos.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Older\ClasesBases\SCFachada.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Resultado\cm_tablaResultado.vb" />
+    <Compile Include="Resultado\cm_xmlAjaxResultado.vb" />
+    <Compile Include="Servicio\Functions.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Configuracion\FWPConfiguration.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Configuracion\FWPControlCambios.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Configuracion\FWPSession.vb" />
+    <Compile Include="Configuracion\FWPTransaction.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Servicio\Security.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SuperClases\BaseSCCommon.vb" />
+    <Compile Include="SuperClases\BaseSCDataAccess.vb" />
+    <Compile Include="SuperClases\BaseSearch.vb" />
+    <Compile Include="SuperClases\excel.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SuperClases\FwpBase.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SuperClases\Nomina.vb" />
+    <Compile Include="SuperClases\SCBusinessRules.vb" />
+    <Compile Include="SuperClases\SCCommon.vb" />
+    <Compile Include="SuperClases\SCCommonFecha.vb" />
+    <Compile Include="SuperClases\SCCommonIdDescripcion.vb" />
+    <Compile Include="SuperClases\SCDataAccess.vb" />
+    <Compile Include="SuperClases\SCDataAccessInformes.vb" />
+    <Compile Include="SuperClases\SCDataAccessNominas.vb" />
+    <Compile Include="Older\ClasesBases\SCDatos.vb" />
+    <Compile Include="SuperClases\SCFachada.vb" />
+    <Compile Include="SuperClases\SCInformes.vb" />
+    <Compile Include="SuperClases\SCNomina.vb" />
+    <Compile Include="Older\ClasesBases\SCNominas.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Older\ClasesBases\SCReglasNegocios.vb">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Configuracion\XMLconfig.vb">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Older\ClasesBases\SCFachada.resx">
+      <DependentUpon>SCFachada.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SuperClases\SCBusinessRules.resx">
+      <DependentUpon>SCBusinessRules.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SuperClases\SCFachada.resx">
+      <DependentUpon>SCFachada.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Older\ClasesBases\SCNominas.resx">
+      <DependentUpon>SCNominas.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Older\ClasesBases\SCReglasNegocios.resx">
+      <DependentUpon>SCReglasNegocios.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

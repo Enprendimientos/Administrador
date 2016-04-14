@@ -1,0 +1,172 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using Fwp.common;
+using <NombreProyecto>.Common.Data;
+using <NombreProyecto>.Common.Nominas;
+using <NombreProyecto>.DataAccess.<__modulo>;
+
+
+namespace <NombreProyecto>.BusinessRules.<__modulo>
+{
+    public class br_<nomfisico> : SCBusinessRules<co_<nomfisico>>
+    {
+        public br_<nomfisico>(){
+             this.myTrans = new FWPTransaction();
+        }
+
+        public br_<nomfisico>(FWPTransaction Trans)
+        {
+            this.myTrans = Trans;
+            this.myTrans.MyStates = FWPTransaction.States.Taken;
+        }
+
+        public co_<nomfisico> GetData(int id)
+        {
+            try
+            {
+                da_<nomfisico> DA<alias> = new da_<nomfisico>(this.myTrans);
+                return DA<alias>.GetData(id);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public IList<co_<nomfisico>> GetData(co_<nomfisico> <alias>)
+        {
+            try
+            {
+                da_<nomfisico> DA<alias> = new da_<nomfisico>(this.myTrans);
+                return DA<alias>.GetData(<alias>);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public co_<nomfisico> Insert(co_<nomfisico> <alias>)
+        {
+            try
+            {
+                da_<nomfisico> DA<alias> = new da_<nomfisico>(this.myTrans);
+                return DA<alias>.Insert(<alias>);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public IList<co_<nomfisico>> Insert(IList<co_<nomfisico>> <alias>)
+        {
+            IList<co_<nomfisico>> ilistReturn;
+            try
+            {
+            	this.myTrans.BeginTransaction();
+                da_<nomfisico> DA<alias> = new da_<nomfisico>(this.myTrans);
+                ilistReturn = DA<alias>.Insert(<alias>);
+                this.myTrans.Commit();
+            }
+            catch (Exception e)
+            {
+                this.myTrans.Rollback();            
+                throw new Exception(e.Message);
+            }
+            return ilistReturn;
+        }
+
+        public void Update(co_<nomfisico> <alias>)
+        {
+            try
+            {
+                da_<nomfisico> DA<alias> = new da_<nomfisico>(this.myTrans);
+                DA<alias>.Update(<alias>);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void Update(IList<co_<nomfisico>> <alias>)
+        {
+            try
+            {
+                this.myTrans.BeginTransaction();            
+                da_<nomfisico> DA<alias> = new da_<nomfisico>(this.myTrans);
+                DA<alias>.Update(<alias>);
+                this.myTrans.Commit();                
+            }
+            catch (Exception e)
+            {
+                this.myTrans.Rollback();            
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void Delete(int id)
+        {
+            try
+            {
+                da_<nomfisico> DA<alias> = new da_<nomfisico>(this.myTrans);
+                DA<alias>.Delete(id);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void Delete(co_<nomfisico> <alias>)
+        {
+            try
+            {
+                this.myTrans.BeginTransaction();            
+                da_<nomfisico> DA<alias> = new da_<nomfisico>(this.myTrans);
+                DA<alias>.Delete(<alias>);
+                this.myTrans.Commit();                
+                
+            }
+            catch (Exception e)
+            {
+                this.myTrans.Rollback();            
+                throw new Exception(e.Message);
+            }
+        }
+
+        public Nomina<co_<nomfisico>_no> GetNomina(co_<nomfisico>_no Nomina)
+        {
+            try
+            {
+                da_<nomfisico> DA<alias> = new da_<nomfisico>(this.myTrans);
+                return DA<alias>.GetNomina(Nomina);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public DataSet GetInforme(String SQLText)
+        {
+            try
+            {
+                da_<nomfisico> DA<alias> = new da_<nomfisico>(this.myTrans);
+                return DA<alias>.GetInforme(SQLText);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public IList<T> GetInforme<T>(T Informe)
+        {
+            da_<nomfisico> DA<alias> = new da_<nomfisico>(this.myTrans);
+            return DA<alias>.GetInforme(Informe);
+        } 
+    }
+}

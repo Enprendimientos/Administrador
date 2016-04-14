@@ -1,0 +1,134 @@
+using System;
+using System.Collections.Generic;
+using System.Data;
+using Fwp.common;
+using <NombreProyecto>.Common.Data;
+using <NombreProyecto>.Common.Nominas;
+using <NombreProyecto>.BusinessRules.<__modulo>;
+
+namespace <NombreProyecto>.BusinessFacade.<__modulo>
+{
+    public class bf_<nomfisico>
+    {
+        public co_<nomfisico> GetData(int id)
+        {
+            try
+            {
+                br_<nomfisico> BR<alias> = new br_<nomfisico>();
+                return BR<alias>.GetData(id);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public IList<co_<nomfisico>> GetData(co_<nomfisico> <alias>)
+        {
+            try
+            {
+                br_<nomfisico> BR<alias> = new br_<nomfisico>();
+                return BR<alias>.GetData(<alias>);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public co_<nomfisico> Save(co_<nomfisico> <alias>)
+        {
+            try
+            {
+                br_<nomfisico> BR<alias> = new br_<nomfisico>();
+                if (<alias>.id == 0)
+                {
+                    return BR<alias>.Insert(<alias>);
+                }
+                else 
+                {
+                    BR<alias>.Update(<alias>);
+                    return <alias>;
+                }                
+                
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public IList<co_<nomfisico>> Save(IList<co_<nomfisico>> <alias>s)
+        {
+            try
+            {
+                br_<nomfisico> BR<alias> = new br_<nomfisico>();
+                List<co_<nomfisico>> ObjReturn = new List<co_<nomfisico>>();
+                foreach (co_<nomfisico> of in <alias>s) 
+                {
+                    if (of.id == 0)
+                    {
+                       ObjReturn.Add(BR<alias>.Insert(of));
+                    }
+                    else 
+                    { 
+                        BR<alias>.Update(of);
+                        ObjReturn.Add(of);
+                    }
+                }
+                return ObjReturn;
+                
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void Delete(int id)
+        {
+            try
+            {
+                br_<nomfisico> BR<alias> = new br_<nomfisico>();
+                BR<alias>.Delete(id);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public Nomina<co_<nomfisico>_no> GetNomina(co_<nomfisico>_no Nomina)
+        {
+            try
+            {
+                br_<nomfisico> BR<alias> = new br_<nomfisico>();
+                return BR<alias>.GetNomina(Nomina);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public DataSet GetInforme(String SQLText)
+        {
+            try
+            {
+                br_<nomfisico> BR<alias> = new br_<nomfisico>();
+                return BR<alias>.GetInforme(SQLText);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public IList<T> GetInforme<T>(T Informe)
+        {
+            br_<nomfisico> BR<alias> = new br_<nomfisico>();
+            return BR<alias>.GetInforme(Informe);
+        } 
+    }
+}
+
