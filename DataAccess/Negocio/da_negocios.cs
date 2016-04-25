@@ -64,5 +64,18 @@ namespace DataAccess.Negocio
         throw new Exception(ex.Message);
       }
     }
+
+    public IList<co_ca_menu> GetMenuEscritorio(co_ca_menu menu)
+    {
+      try
+      {
+        SCDataAccess<co_ca_menu> access = new SCDataAccess<co_ca_menu>();
+        return access.ReadData(new co_ca_menu(), "pa_08_ca_menuEscritorio", this.Trans);
+      }
+      catch (Exception ex)
+      {
+        throw new Exception(ex.Message);
+      }
+    }
   }
 }

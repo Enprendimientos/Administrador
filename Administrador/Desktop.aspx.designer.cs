@@ -7,10 +7,19 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace Administrador.ControlAcceso {
+namespace Administrador {
     
     
-    public partial class AgregarMenuPadre {
+    public partial class Desktop {
+        
+        /// <summary>
+        /// Control form1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// Control ResourceManager1.
@@ -22,93 +31,138 @@ namespace Administrador.ControlAcceso {
         protected global::Ext.Net.ResourceManager ResourceManager1;
         
         /// <summary>
-        /// Control XScriptTemplate.
+        /// Control dskPrincipal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.XScript XScriptTemplate;
+        protected global::Ext.Net.Desktop dskPrincipal;
         
         /// <summary>
-        /// Control hid_id.
+        /// Control Toolbar1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Hidden hid_id;
+        protected global::Ext.Net.Toolbar Toolbar1;
         
         /// <summary>
-        /// Control txtNombreMenu.
+        /// Control btnMiPerfil.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.TextField txtNombreMenu;
+        protected global::Ext.Net.Button btnMiPerfil;
         
         /// <summary>
-        /// Control cmbMenuPadre.
+        /// Control btnCerrar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.ComboBox cmbMenuPadre;
+        protected global::Ext.Net.Button btnCerrar;
         
         /// <summary>
-        /// Control strCmbMenuPadre.
+        /// Control Toolbar2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Store strCmbMenuPadre;
+        protected global::Ext.Net.Toolbar Toolbar2;
         
         /// <summary>
-        /// Control cmbIconos.
+        /// Control Button2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.ComboBox cmbIconos;
+        protected global::Ext.Net.Button Button2;
         
         /// <summary>
-        /// Control strIconos.
+        /// Control Button3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Store strIconos;
+        protected global::Ext.Net.Button Button3;
         
         /// <summary>
-        /// Control chkVigente.
+        /// Control Toolbar3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Checkbox chkVigente;
+        protected global::Ext.Net.Toolbar Toolbar3;
         
         /// <summary>
-        /// Control btnBorrar.
+        /// Control btnPerfil.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Button btnBorrar;
+        protected global::Ext.Net.Button btnPerfil;
         
         /// <summary>
-        /// Control btnGuardar.
+        /// Control Menu1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Button btnGuardar;
+        protected global::Ext.Net.Menu Menu1;
+        
+        /// <summary>
+        /// Control MenuItem1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.MenuItem MenuItem1;
+        
+        /// <summary>
+        /// Control menuCambiarFondo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.MenuItem menuCambiarFondo;
+        
+        /// <summary>
+        /// Control MenuSeparator1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.MenuSeparator MenuSeparator1;
+        
+        /// <summary>
+        /// Control MenuItem2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.MenuItem MenuItem2;
+        
+        /// <summary>
+        /// Control MenuItem3.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.MenuItem MenuItem3;
     }
 }

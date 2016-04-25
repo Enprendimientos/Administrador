@@ -103,15 +103,15 @@ namespace Administrador.ControlAcceso
     {
       try
       {
-        int id_usuario = NumInt.Init(hid_id.Text);
+        int idUsuario = NumInt.Init(hid_id.Text);
 
         co_tg_personas persona = new co_tg_personas();
         co_ca_usuarios usuario = new co_ca_usuarios();
         String mensaje;
 
-        if (id_usuario!=0)
+        if (idUsuario!=0)
         {
-          usuario = new bf_ca_usuarios().GetData(id_usuario);
+          usuario = new bf_ca_usuarios().GetData(idUsuario);
           persona = new bf_tg_personas().GetData(usuario.id_persona.id);
           mensaje = Cadenas.REGISTRO_MODIFICADO;
         }
@@ -133,7 +133,7 @@ namespace Administrador.ControlAcceso
         usuario.usua_esvigente = Validacion.ConvertirAEstadosRegistros(txtVigente.Value);
 
         new bf_negocios().Save(persona,usuario);
-        Mensajes.Show("Mensaje", mensaje, "CloseIframe()");
+        Mensajes.Show("Mensaje", mensaje, "CloseIframe()",MessageBox.Icon.INFO);
       }
       catch (Exception ex)
       {

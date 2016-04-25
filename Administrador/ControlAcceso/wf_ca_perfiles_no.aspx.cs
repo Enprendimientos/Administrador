@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using Administrador.RefreshPage;
 using BussinessFacade.ControlAcceso;
 using Common.Nomina.ControlAcceso;
@@ -14,7 +13,6 @@ namespace Administrador.ControlAcceso
     protected override void Page_Load(object sender, EventArgs e)
     {
       //base.Page_Load(sender,e);
-      //Response.Write(Session.Timeout.ToString());
     }
 
     public void OnReadData_st_grilla(object sender, StoreReadDataEventArgs e)
@@ -22,7 +20,10 @@ namespace Administrador.ControlAcceso
       try
       {
 
-        int page = (e.Start / e.Limit) + 1;
+        int start = e.Start;
+        int limit = NumInt.Init(e.Parameters.GetParameter("limit").Value);
+        limit = limit == 0 ? e.Limit : limit;
+        int page = (start / limit) + 1;
 
         co_ca_perfiles_no Nomina = new co_ca_perfiles_no();
 
@@ -96,5 +97,71 @@ namespace Administrador.ControlAcceso
     }
 
 
+    protected void strOpciones_OnReadData(object sender, StoreReadDataEventArgs e)
+    {
+      try
+      {
+        int start = e.Start;
+        int limit = NumInt.Init(e.Parameters.GetParameter("limit").Value);
+        limit = limit == 0 ? e.Limit : limit;
+        int page = (start/limit) + 1;
+        btnAsociar.Disabled = false;
+
+        co_ca_perfilesopciones_no Nomina = new co_ca_perfilesopciones_no();
+        Nomina.Pagina = page;
+        Nomina.RegistrosPorPaginas = limit;
+        Nomina.ColumnaOrden = e.Sort[0].Property;
+        Nomina.OrdenColumna = (FwpServerControls.FwpDataGridDataBound.Orden)
+          Enum.Parse(typeof (FwpServerControls.FwpDataGridDataBound.Orden), e.Sort[0].Direction.ToString(), true);
+        Nomina.id_perfil.id = e.Parameters.GetParameter("id_perfil").Value.ValidaEntero("id_perfil");
+
+        AgregarFiltrosOpciones(ref Nomina);
+        Nomina<co_ca_perfilesopciones_no> data = new bf_ca_perfilesopciones().GetNomina(Nomina);
+
+        strOpciones.DataSource = data.DataSource;
+        strOpciones.PageSize = limit;
+        PageProxy pageProxy = strOpciones.Proxy[0] as PageProxy;
+        if (pageProxy != null) pageProxy.Total = data.Registros;
+        strOpciones.DataBind();
+
+      }
+      catch (Exception ex)
+      {
+        Mensajes.Error(ex.Message);
+      }
+    }
+
+    private void AgregarFiltrosOpciones(ref co_ca_perfilesopciones_no nomina)
+    {
+      nomina.id_opcion.descripcion = FiltrosNomina.ValidarFiltros<string>(nomina.id_opcion.descripcion, filter_op_opcion.Text);
+    }
+
+    protected void Open_win_mantenedorPerfilOpcion(object sender, DirectEventArgs e)
+    {
+      string url = e.ExtraParams.GetParameter("url").Value;
+      string command = e.ExtraParams.GetParameter("command").Value;
+      string id = e.ExtraParams.GetParameter("id").Value;
+      string title = string.Empty;
+      Icon icono = Icon.None;
+
+      switch (command)
+      {
+        case "Agregar":
+          url += "?op=in&id=" + id;
+          icono = Icon.PackageAdd;
+          title = "Agregar Opción";
+          break;
+        case "Eliminar":
+          url += "?op=el&id=" + id;
+          icono = Icon.Delete;
+          title = "Eliminar Opción";
+          break;
+      }
+
+      this.win_mantenedorOpciones.Html = url.GetFrameURL();
+      this.win_mantenedorOpciones.Title = title;
+      this.win_mantenedorOpciones.Icon = icono;
+      this.win_mantenedorOpciones.Show();
+    }
   }
 }

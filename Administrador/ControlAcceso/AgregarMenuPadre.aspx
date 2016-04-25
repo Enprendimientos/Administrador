@@ -7,17 +7,23 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <title></title>
   <link href="../Css/Default.css" rel="stylesheet" />
-  <style>
-    .icon-combo-item {
-      background-repeat: no-repeat !important;
-      background-position: 3px 50% !important;
-      padding-left: 24px !important;
-    }
-  </style>
 </head>
 <body>
   <form id="form1" runat="server">
     <ext:ResourceManager runat="server" ID="ResourceManager1" />
+    <ext:XScript ID="XScriptTemplate" runat="server">
+    <script type="text/javascript">
+      function CloseIframe() {
+        if (parent) {
+          if (parent.win_mantenedor) {
+            parent.CloseWinMantenedor();
+          }
+        }
+      }
+
+    </script>
+    </ext:XScript>
+    <ext:Hidden runat="server" ID="hid_id" FieldLabel="ID"></ext:Hidden>
     <ext:Viewport runat="server" Layout="BorderLayout">
       <Items>
         <ext:FormPanel runat="server" Region="Center" Padding="10" AutoScroll="True">
@@ -33,7 +39,7 @@
             </ext:TextField>
             <ext:ComboBox runat="server" ID="cmbMenuPadre" FieldLabel="Menú Padre" DisplayField="menu_nombre" ValueField="id_menu" AnchorHorizontal="98%">
               <Store>
-                <ext:Store runat="server" ID="strCmbMenuPadre" OnReadData="strCmbMenuPadre_OnReadData">
+                <ext:Store runat="server" ID="strCmbMenuPadre">
                   <Model>
                     <ext:Model runat="server" IDProperty="id_menu">
                       <Fields>
@@ -53,9 +59,6 @@
                       </Fields>
                     </ext:Model>
                   </Model>
-                  <Proxy>
-                    <ext:PageProxy />
-                  </Proxy>
                 </ext:Store>
               </Store>
               <AfterLabelTextTpl runat="server">
@@ -67,7 +70,7 @@
             <ext:ComboBox runat="server" ID="cmbIconos" FieldLabel="Icono" ValueField="icono" DisplayField="icono" IndicatorIcon="Help"
               IndicatorTip="Los Iconos son Imágenes que se muestra al costado del nombre del Menú" AllowBlank="False" AnchorHorizontal="98%">
               <Store>
-                <ext:Store runat="server" ID="strIconos" OnReadData="strIconos_OnReadData" AutoLoad="True">
+                <ext:Store runat="server" ID="strIconos">
                   <Model>
                     <ext:Model runat="server" IDProperty="id">
                       <Fields>
@@ -77,9 +80,6 @@
                       </Fields>
                     </ext:Model>
                   </Model>
-                  <Proxy>
-                    <ext:PageProxy />
-                  </Proxy>
                 </ext:Store>
               </Store>
               <ListConfig>
@@ -103,6 +103,14 @@
             <ext:Checkbox runat="server" ID="chkVigente" FieldLabel="Vigente"></ext:Checkbox>
           </Items>
           <Buttons>
+            <ext:Button runat="server" ID="btnBorrar" Text="Borrar" UI="Danger">
+              <DirectEvents>
+                <Click OnEvent="btnBorrar_Click" After="CloseIframe();">
+                 <Confirmation Title="Confirmar" Message="Desea Borrar el registro?" ConfirmRequest="True" ></Confirmation>
+                  <EventMask ShowMask="True" Msg="Borrando..." />
+                </Click>
+              </DirectEvents>
+            </ext:Button>
             <ext:Button runat="server" ID="btnGuardar" Text="Guardar" UI="Success" FormBind="True">
               <DirectEvents>
                 <Click OnEvent="btnGuardar_Click">

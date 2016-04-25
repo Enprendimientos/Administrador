@@ -10,25 +10,16 @@
 namespace Administrador.ControlAcceso {
     
     
-    public partial class AgregarMenuPadre {
+    public partial class AsociarOpcionesPerfil {
         
         /// <summary>
-        /// Control ResourceManager1.
+        /// Control form1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.ResourceManager ResourceManager1;
-        
-        /// <summary>
-        /// Control XScriptTemplate.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.XScript XScriptTemplate;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
         /// Control hid_id.
@@ -40,75 +31,48 @@ namespace Administrador.ControlAcceso {
         protected global::Ext.Net.Hidden hid_id;
         
         /// <summary>
-        /// Control txtNombreMenu.
+        /// Control grdOpcionesDisponibles.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.TextField txtNombreMenu;
+        protected global::Ext.Net.GridPanel grdOpcionesDisponibles;
         
         /// <summary>
-        /// Control cmbMenuPadre.
+        /// Control grdOpcionesNoDisponibles.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.ComboBox cmbMenuPadre;
+        protected global::Ext.Net.GridPanel grdOpcionesNoDisponibles;
         
         /// <summary>
-        /// Control strCmbMenuPadre.
+        /// Control GridView2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Store strCmbMenuPadre;
+        protected global::Ext.Net.GridView GridView2;
         
         /// <summary>
-        /// Control cmbIconos.
+        /// Control GridDragDrop2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.ComboBox cmbIconos;
+        protected global::Ext.Net.GridDragDrop GridDragDrop2;
         
         /// <summary>
-        /// Control strIconos.
+        /// Control btnAyuda.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::Ext.Net.Store strIconos;
-        
-        /// <summary>
-        /// Control chkVigente.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.Checkbox chkVigente;
-        
-        /// <summary>
-        /// Control btnBorrar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.Button btnBorrar;
-        
-        /// <summary>
-        /// Control btnGuardar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.Button btnGuardar;
+        protected global::Ext.Net.Button btnAyuda;
     }
 }

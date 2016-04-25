@@ -7,3 +7,9 @@
   color: red;
   font-weight: bold;
 }
+
+.icon-combo-item {
+  background-repeat: no-repeat !important;
+  background-position: 3px 50% !important;
+  padding-left: 24px !important;
+}

@@ -22,6 +22,24 @@ namespace Administrador.ControlAcceso {
         protected global::Ext.Net.ResourceManager ResourceManager1;
         
         /// <summary>
+        /// Control XScriptTemplate.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.XScript XScriptTemplate;
+        
+        /// <summary>
+        /// Control hid_id.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.Hidden hid_id;
+        
+        /// <summary>
         /// Control txtNombreMenu.
         /// </summary>
         /// <remarks>
@@ -119,6 +137,15 @@ namespace Administrador.ControlAcceso {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Ext.Net.Checkbox chkVigente;
+        
+        /// <summary>
+        /// Control btnBorrar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.Button btnBorrar;
         
         /// <summary>
         /// Control btnGuardar.

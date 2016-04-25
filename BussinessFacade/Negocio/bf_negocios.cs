@@ -83,5 +83,18 @@ namespace BussinessFacade.Negocio
         throw new Exception(e.Message);
       }
     }
+
+    public IList<co_ca_menu> GetMenuEscritorio(co_ca_menu menu)
+    {
+      try
+      {
+        br_negocios business = new br_negocios();
+        return business.GetMenuEscritorio(menu);
+      }
+      catch (Exception e)
+      {
+        throw new Exception(e.Message);
+      }
+    }
   }
 }

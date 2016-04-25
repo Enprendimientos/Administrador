@@ -96,9 +96,11 @@
   <ItemGroup>
     <Content Include="ControlAcceso\AgregarMenu.aspx" />
     <Content Include="ControlAcceso\AgregarMenuPadre.aspx" />
+    <Content Include="ControlAcceso\AsociarOpcionesPerfil.aspx" />
     <Content Include="ControlAcceso\AsociarPerfil.aspx" />
     <Content Include="ControlAcceso\NominaMenus.aspx" />
     <Content Include="ControlAcceso\wf_ca_menu_adm.aspx" />
+    <Content Include="Desktop.aspx" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\AdministradorApp.pubxml" />
     <None Include="Properties\PublishProfiles\AdministradorProyectos %282%29.pubxml" />
@@ -143,6 +145,13 @@
     <Compile Include="ControlAcceso\AgregarMenuPadre.aspx.designer.cs">
       <DependentUpon>AgregarMenuPadre.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ControlAcceso\AsociarOpcionesPerfil.aspx.cs">
+      <DependentUpon>AsociarOpcionesPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlAcceso\AsociarOpcionesPerfil.aspx.designer.cs">
+      <DependentUpon>AsociarOpcionesPerfil.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ControlAcceso\AsociarPerfil.aspx.cs">
       <DependentUpon>AsociarPerfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -170,6 +179,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Desktop.aspx.cs">
+      <DependentUpon>Desktop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Desktop.aspx.designer.cs">
+      <DependentUpon>Desktop.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

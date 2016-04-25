@@ -27,13 +27,13 @@ namespace Administrador.ControlAcceso
     {
       Node root = new Node{Text = "Menus"};
       treeMenu.Root.Add(root);
-      IList<co_ca_menu> ListMenu = new bf_ca_menu().GetData(new co_ca_menu{id_menupadre = -1});
-      if (ListMenu.Any())
+      IList<co_ca_menu> listMenu = new bf_ca_menu().GetData(new co_ca_menu{id_menupadre = -1});
+      if (listMenu.Any())
       {
-        foreach (co_ca_menu menuPadre in ListMenu)
+        foreach (co_ca_menu menuPadre in listMenu)
         {
-          IList<co_ca_menu> ListMenuHijos = new bf_ca_menu().GetData(new co_ca_menu { id_menupadre = menuPadre.id_menu });
-          if (ListMenuHijos.Any())
+          IList<co_ca_menu> listMenuHijos = new bf_ca_menu().GetData(new co_ca_menu { id_menupadre = menuPadre.id_menu });
+          if (listMenuHijos.Any())
           {
             Node nodeMenuPadre = new Node { Text = menuPadre.menu_nombre, IconCls = "#"+menuPadre.menu_icono };
             root.Children.Add(nodeMenuPadre);
@@ -43,17 +43,17 @@ namespace Administrador.ControlAcceso
       }
     }
 
-    private void CreaMenuHijo(int id_menu, Node MenuPadre)
+    private void CreaMenuHijo(int idMenu, Node menuPadre)
     {
-      IList<co_ca_menu> ListMenuHijos = new bf_ca_menu().GetData(new co_ca_menu { id_menupadre = id_menu });
-      if (ListMenuHijos.Any())
+      IList<co_ca_menu> listMenuHijos = new bf_ca_menu().GetData(new co_ca_menu { id_menupadre = idMenu });
+      if (listMenuHijos.Any())
       {
-        foreach (co_ca_menu hijo in ListMenuHijos)
+        foreach (co_ca_menu hijo in listMenuHijos)
         {
           Node nodeMenuHijo = new Node { Text = hijo.menu_nombre, IconCls = "#"+ hijo.menu_icono };
-          MenuPadre.Children.Add(nodeMenuHijo);
-          IList<co_ca_menu> ListMenuHijoHijo = new bf_ca_menu().GetData(new co_ca_menu { id_menupadre = hijo.id_menu });
-          if (ListMenuHijoHijo.Any())
+          menuPadre.Children.Add(nodeMenuHijo);
+          IList<co_ca_menu> listMenuHijoHijo = new bf_ca_menu().GetData(new co_ca_menu { id_menupadre = hijo.id_menu });
+          if (listMenuHijoHijo.Any())
           {
             CreaMenuHijo(hijo.id_menu, nodeMenuHijo);
           }
@@ -73,19 +73,19 @@ namespace Administrador.ControlAcceso
       limit = limit == 0 ? e.Limit : limit;
       int page = (start / limit) + 1;
 
-      co_ca_menu_no Nomina = new co_ca_menu_no();
+      co_ca_menu_no nomina = new co_ca_menu_no();
 
-      Nomina.Pagina = page;
-      Nomina.RegistrosPorPaginas = limit;
-      Nomina.ColumnaOrden = e.Sort[0].Property;
-      Nomina.OrdenColumna = (FwpDataGridDataBound.Orden)
+      nomina.Pagina = page;
+      nomina.RegistrosPorPaginas = limit;
+      nomina.ColumnaOrden = e.Sort[0].Property;
+      nomina.OrdenColumna = (FwpDataGridDataBound.Orden)
         Enum.Parse(typeof(FwpDataGridDataBound.Orden), e.Sort[0].Direction.ToString(), true);
 
       IList<object> lista = new List<object>();
 
-      AgregarFiltros_st_grilla(ref Nomina);
+      AgregarFiltros_st_grilla(ref nomina);
 
-      Nomina<co_ca_menu_no> data = new bf_ca_menu().GetNomina(Nomina);
+      Nomina<co_ca_menu_no> data = new bf_ca_menu().GetNomina(nomina);
 
       foreach (co_ca_menu_no n in data.DataSource)
       {
@@ -130,11 +130,21 @@ namespace Administrador.ControlAcceso
 
     public void Open_win_mantenedor(object sender, DirectEventArgs e)
     {
-      string url = "";
+      string url = "" ;
+      string menuUrl = e.ExtraParams["url"];
       string command = e.ExtraParams["command"];
       string id = e.ExtraParams["Id"];
       string titulo = String.Empty;
+      string path = "";
       Icon icono = Icon.None;
+      if (string.IsNullOrEmpty(menuUrl))
+      {
+        path += "AgregarMenuPadre.aspx";
+      }
+      else
+      {
+        path += "AgregarMenu.aspx";
+      }
       switch (command)
       {
         case "AgregarMenuPadre":
@@ -148,21 +158,21 @@ namespace Administrador.ControlAcceso
           titulo = "Agregar Menú";
           break;
         case "Modificar":
-          url += "?op=mo&k=" + id;
+          url += path+"?op=mo&k=" + id;
           icono = Icon.Pencil;
           titulo = "Modificar Menú";
           break;
         case "Eliminar":
-          url += "?op=el&k=" + id;
+          url +=path+ "?op=el&k=" + id;
           icono = Icon.Delete;
           titulo = "Eliminar Menú";
           break;
       }
 
-      this.win_mantenedor.Html = url.GetFrameURL();
-      this.win_mantenedor.Title = titulo;
-      this.win_mantenedor.Icon = icono;
-      this.win_mantenedor.Show();
+      win_mantenedor.Html = url.GetFrameURL();
+      win_mantenedor.Title = titulo;
+      win_mantenedor.Icon = icono;
+      win_mantenedor.Show();
     }
     
   }

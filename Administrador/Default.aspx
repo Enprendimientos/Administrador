@@ -20,10 +20,29 @@
         <ext:FormPanel runat="server" Layout="FormLayout" Icon="Laptop" Title="Inicio de Sesión">
           <FieldDefaults MsgTarget="Under" AllowBlank="False"/>
           <Items>
-            <ext:TextField runat="server" FieldLabel="Nombre Usuario" Icon="User" MaxLength="50" EnforceMaxLength="True" ID="txtUsuario"/>
-            <ext:TextField runat="server" FieldLabel="Clave" Icon="Key" MaxLength="16" EnforceMaxLength="true" ID="txtClave"/>
+            <ext:TextField runat="server" FieldLabel="Nombre Usuario" Icon="User" MaxLength="50" EnforceMaxLength="True" ID="txtUsuario">
+              <DirectEvents>
+                <Blur OnEvent="txtUsuario_Blur">
+                  <EventMask ShowMask="True" Msg="Cargando..." MinDelay="1000"></EventMask>
+                </Blur>
+              </DirectEvents>
+            </ext:TextField>
+            <ext:TextField runat="server" FieldLabel="Clave" Icon="Key" MaxLength="16" EnforceMaxLength="true" ID="txtClave" InputType="Password"/>
             <ext:ComboBox runat="server" FieldLabel="Perfil" Icon="Group" ID="cmbPerfil" ForceSelection="True"
-              Editable="False"></ext:ComboBox>
+              Editable="False" DisplayField="pe_perfil" ValueField="id_perfil">
+              <Store>
+                <ext:Store runat="server" ID="strCmbPerfiles">
+                  <Model>
+                    <ext:Model runat="server" IDProperty="id_perfil">
+                      <Fields>
+                        <ext:ModelField ServerMapping="id_perfil.id" Name="id_perfil"/>
+                        <ext:ModelField ServerMapping="id_perfil.descripcion" Name="pe_perfil"/>
+                      </Fields>
+                    </ext:Model>
+                  </Model>
+                </ext:Store>
+              </Store>
+            </ext:ComboBox>
             <ext:HyperlinkButton runat="server" Text="¿Olvide mi Contraseña?" Icon="Help">
               <Listeners>
                 <Click Handler="window.location.href='RecordarContrasena.aspx';"></Click>

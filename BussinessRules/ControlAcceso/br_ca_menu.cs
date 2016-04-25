@@ -62,14 +62,34 @@ namespace BussinessRules.ControlAcceso
       try
       {
         da_ca_menu DAmenu = new da_ca_menu(Trans);
-        menu = DAmenu.Insert(menu); 
+        menu = DAmenu.Insert(menu);
 
         da_tg_constantes daContantes = new da_tg_constantes(Trans);
         co_tg_constantes constante = new co_tg_constantes();
         constante.ct_constante = "ACC_MENU_" + menu.menu_nombreventana;
         constante.ct_constante = constante.ct_constante.ToUpper();
+        constante.ct_constantevalor = menu.id_menu.ToString();
+        constante.ct_constantedescripcion = menu.menu_nombre;
+        constante.id_constantetipo.id = 1;
 
-        constante= daContantes.Insert(constante);
+        constante = daContantes.Insert(constante);
+
+        da_ca_opciones daOpciones = new da_ca_opciones(Trans);
+        co_ca_opciones opc = new co_ca_opciones();
+        opc.opci_constante = constante.ct_constante;
+        opc.opci_opcion = menu.menu_nombre;
+
+        opc = daOpciones.Insert(opc);
+
+        da_ca_menuopciones daMenopc = new da_ca_menuopciones(Trans);
+        co_ca_menuopciones menopc = new co_ca_menuopciones();
+        menopc.id_menu.id = menu.id_menu;
+        menopc.id_opcion.id = opc.id_opcion;
+        menopc.meop_descripcion = menu.menu_nombre + " - " + opc.opci_constante;
+
+        menopc = daMenopc.Insert(menopc);
+
+        Trans.myTransaction.Commit();
 
         return menu;
       }

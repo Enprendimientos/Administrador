@@ -12,7 +12,7 @@
     <ext:ResourceManager ID="manager" runat="server" DirectMethodNamespace="XMethod"
       ShowWarningOnAjaxFailure="false">
       <Listeners>
-        <AjaxRequestException Handler="alert(response);" />
+        <AjaxRequestException Handler="alert(response);Error(response);" />
       </Listeners>
     </ext:ResourceManager>
     <ext:XScript ID="XScriptTemplate" runat="server">
@@ -20,17 +20,25 @@
 
       function ClickLimpiarFiltros() {
 
-        filtertxt_menu_nombre.reset();
-        filterint_id_menupadre.reset();
-        filtertxt_menu_url.reset();
-        filterint_menu_orden.reset();
-        filterbol_menu_activo.reset();
-        filtertxt_menu_nombreventana.reset();
-        filtertxt_menu_urlReal.reset();
-        filtertxt_menu_icono.reset();
+        App.filtertxt_menu_nombre.reset();
+        //App.filterint_id_menupadre.reset();
+        App.filtertxt_menu_url.reset();
+        App.filterint_menu_orden.reset();
+        App.filterbol_menu_activo.reset();
+        App.filtertxt_menu_nombreventana.reset();
+        App.filtertxt_menu_urlReal.reset();
+        App.filtertxt_menu_icono.reset();
 
-        st_grilla.load();
+        App.st_grilla.load();
       }
+
+      function CloseWinMantenedor() {
+        App.win_mantenedor.hide();
+      }
+      function Error(r) {
+        console.log(r);
+      }
+
       </script>
     </ext:XScript>
     <ext:Store ID="st_grilla" runat="server" OnReadData="OnReadData_st_grilla"
@@ -85,9 +93,9 @@
                 <DirectEvents>
                   <Command OnEvent="Open_win_mantenedor">
                     <ExtraParams>
-                      <ext:Parameter Name="url" Value="wf_ca_menu_adm.aspx" />
                       <ext:Parameter Name="command" Value="command" Mode="Raw" />
                       <ext:Parameter Name="Id" Value="record.data.id_menu" Mode="Raw" />
+                      <ext:Parameter Name="url" Value="record.data.menu_url" Mode="Raw"/>
                     </ExtraParams>
                   </Command>
                 </DirectEvents>
@@ -209,7 +217,7 @@
     <ext:Window ID="win_mantenedor" runat="server" Modal="true" Hidden="true" Width="500"
       Height="400">
       <Listeners>
-        <Hide Handler="#{st_grilla}.load();" />
+        <Hide Handler="#{st_grilla}.load(); " />
       </Listeners>
     </ext:Window>
   </form>

@@ -49,6 +49,15 @@ namespace Administrador {
         protected global::Ext.Net.ComboBox cmbPerfil;
         
         /// <summary>
+        /// Control strCmbPerfiles.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.Store strCmbPerfiles;
+        
+        /// <summary>
         /// Control btnIngresar.
         /// </summary>
         /// <remarks>

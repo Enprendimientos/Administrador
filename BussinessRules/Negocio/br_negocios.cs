@@ -114,5 +114,18 @@ namespace BussinessRules.Negocio
         throw new Exception(ex.Message);
       }
     }
+
+    public IList<co_ca_menu> GetMenuEscritorio(co_ca_menu menu)
+    {
+      try
+      {
+        da_negocios acces = new da_negocios(this.myTrans);
+        return acces.GetMenuEscritorio(menu);
+      }
+      catch (Exception ex)
+      {
+        throw new Exception(ex.Message);
+      }
+    }
   }
 }
