@@ -13,15 +13,6 @@ namespace Administrador {
     public partial class Desktop {
         
         /// <summary>
-        /// Control form1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
         /// Control ResourceManager1.
         /// </summary>
         /// <remarks>
@@ -49,15 +40,6 @@ namespace Administrador {
         protected global::Ext.Net.Toolbar Toolbar1;
         
         /// <summary>
-        /// Control btnMiPerfil.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::Ext.Net.Button btnMiPerfil;
-        
-        /// <summary>
         /// Control btnCerrar.
         /// </summary>
         /// <remarks>
@@ -65,6 +47,15 @@ namespace Administrador {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::Ext.Net.Button btnCerrar;
+        
+        /// <summary>
+        /// Control Button1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Ext.Net.Button Button1;
         
         /// <summary>
         /// Control Toolbar2.

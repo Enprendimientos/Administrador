@@ -65,12 +65,12 @@ namespace DataAccess.Negocio
       }
     }
 
-    public IList<co_ca_menu> GetMenuEscritorio(co_ca_menu menu)
+    public IList<co_ca_menu> GetMenuEscritorio()
     {
       try
       {
         SCDataAccess<co_ca_menu> access = new SCDataAccess<co_ca_menu>();
-        return access.ReadData(new co_ca_menu(), "pa_08_ca_menuEscritorio", this.Trans);
+        return access.ReadData(new co_ca_menu(), "pa08_ca_menu_escritorio", this.Trans);
       }
       catch (Exception ex)
       {

@@ -120,7 +120,7 @@ namespace BussinessRules.Negocio
       try
       {
         da_negocios acces = new da_negocios(this.myTrans);
-        return acces.GetMenuEscritorio(menu);
+        return acces.GetMenuEscritorio();
       }
       catch (Exception ex)
       {
