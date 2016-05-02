@@ -62,8 +62,8 @@
       <Model>
         <ext:Model runat="server" IDProperty="id_opcion">
           <Fields>
-            <ext:ModelField ServerMapping="id_opcion" Name="id_opcion.id" />
-            <ext:ModelField ServerMapping="opci_opcion" Name="id_opcion.descripcion" />
+            <ext:ModelField ServerMapping="id_opcion.id" Name="id_opcion" />
+            <ext:ModelField ServerMapping="id_opcion.descripcion" Name="opci_opcion" />
           </Fields>
         </ext:Model>
       </Model>

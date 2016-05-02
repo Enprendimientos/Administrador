@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using BussinessFacade.ControlAcceso;
 using BussinessFacade.Negocio;
 using Common.Data.ControlAcceso;
@@ -16,12 +14,12 @@ using Parameter = Ext.Net.Parameter;
 
 namespace Administrador
 {
-  public partial class Desktop : System.Web.UI.Page
+  public partial class Desktop : Page
   {
     protected void Page_Load(object sender, EventArgs e)
     {
       //string accesos = FWPConfiguration.get_Accesos(Session.SessionID);
-      if (!IsPostBack && !X.IsAjaxRequest)
+      if (!IsPostBack)
       {
         //if (accesos == null)
         //{
@@ -31,6 +29,9 @@ namespace Administrador
       }
     }
 
+    /// <summary>
+    /// Metodo que se encargara de Obtener Todos los Acceso que puede tener ese Usuario Con ese Perfil
+    /// </summary>
     protected void ConfigurarEscritorio()
     {
       try
@@ -43,43 +44,7 @@ namespace Administrador
         menu.id_usuario = FWPConfiguration.get_ID_User(Session.SessionID);
         IList<co_ca_menu> listMenu = new bf_negocios().GetMenuEscritorio(menu);
         CargaMenuPadre(listMenu);
-        //CargaMenuTemp(listMenu);
         CargaPerfiles(null, null);
-      }
-      catch (Exception ex)
-      {
-        Mensajes.Error(ex.Message);
-      }
-    }
-    protected void CargaMenuTemp(IList<co_ca_menu> listMenu)
-    {
-      try
-      {
-        foreach (co_ca_menu menu in listMenu.Where(menu => menu.id_menupadre != 0))
-        {
-
-          MenuItem hijo = new MenuItem();
-          hijo.ID = "MH_" + menu.menu_nombreventana;
-          hijo.IconCls = "#Application";
-          hijo.Text = menu.menu_nombre;
-          hijo.DestroyMenu = false;
-
-          Parameter titulo = new Parameter("title", menu.menu_nombre);
-          string strurl = menu.menu_url + "?k=" +
-                       menu.id_menu + "&u=" + FWPConfiguration.get_ID_User(Session.SessionID);
-          strurl = strurl + "&z=" + FWPConfiguration.get_Accesos(Session.SessionID);
-          Parameter url = new Parameter("url", strurl);
-          Parameter id = new Parameter("id", menu.menu_nombreventana);
-          Parameter icono = new Parameter("icono", "#Application");
-
-          hijo.DirectEvents.Click.Event += Button_WindowDesktop;
-          hijo.DirectEvents.Click.ExtraParams.Add(url);
-          hijo.DirectEvents.Click.ExtraParams.Add(titulo);
-          hijo.DirectEvents.Click.ExtraParams.Add(icono);
-          hijo.DirectEvents.Click.ExtraParams.Add(id);
-
-          dskPrincipal.StartMenu.MenuItems.Add(hijo);
-        }
       }
       catch (Exception ex)
       {
@@ -96,9 +61,9 @@ namespace Administrador
       try
       {
         //Cargo primero el MenuPadre == 0 ya que ese es siempre nuestro menu principal
-        foreach (co_ca_menu menu in listMenu.Where(menu => menu.id_menupadre == 0).OrderBy(c => c.id_menupadre).OrderBy(c => c.menu_orden))
+        foreach (co_ca_menu menu in listMenu.Where(menu => menu.id_menupadre == -1).OrderBy(c => c.id_menupadre).OrderBy(c => c.menu_orden))
         {
-          MenuItem menuPadre = new MenuItem { Text = menu.menu_nombre, IconCls = "#Application", ID = "MP_" + menu.menu_nombreventana };
+          MenuItem menuPadre = new MenuItem { Text = menu.menu_nombre, IconCls = "#"+menu.menu_icono, ID = "MP_" + menu.menu_nombreventana };
           menuPadre.Menu.Add(CreaMenuHijos(menu.id_menu, listMenu));
 
           dskPrincipal.StartMenu.MenuItems.Add(menuPadre);
@@ -129,14 +94,14 @@ namespace Administrador
           MenuItem hijo;
           if (hijos.Any())
           {
-            hijo = new MenuItem { Text = menuHijo.menu_nombre, IconCls = "#Application", ID = "MP_" + menuHijo.menu_nombreventana };
+            hijo = new MenuItem { Text = menuHijo.menu_nombre, IconCls = "#" + menuHijo.menu_icono, ID = "MP_" + menuHijo.menu_nombreventana };
             hijo.Menu.Add(CreaMenuHijos(menuHijo.id_menu, listMenu));
           }
           else
           {
             hijo = new MenuItem();
             hijo.ID = "MH_" + menuHijo.menu_nombreventana;
-            hijo.IconCls = "#Application";
+            hijo.IconCls = "#" + menuHijo.menu_icono;
             hijo.Text = menuHijo.menu_nombre;
             hijo.DestroyMenu = false;
 
@@ -202,35 +167,117 @@ namespace Administrador
         throw new Exception(ex.Message);
       }
     }
-
-    protected void btnMiPerfil_Click(object sender, DirectEventArgs e)
-    {
-      throw new NotImplementedException();
-    }
-
+    /// <summary>
+    /// Metodo realizo para el cierre de Sesion
+    /// </summary>
+    /// <param name="sender"></param>
+    /// <param name="e"></param>
     protected void btnCerrarSesion_Click(object sender, DirectEventArgs e)
     {
-      int idUsuario = FWPConfiguration.get_ID_User(Session.SessionID);
-      co_ca_usuarios usuario = new bf_ca_usuarios().GetData(idUsuario);
-      if (usuario != null)
+      try
       {
-        usuario.usua_ultimaconexion.Fecha = DateTime.Now;
-        new bf_ca_usuarios().Save(usuario);
+        Mensajes.Confirm("Mensaje", "¿Esta Seguro que desea Cerrar Sesión?", "Principal.CerrarSesion()", "");
       }
-
-      FWPConfiguration.OnSessionEnd(Session.SessionID);
-      Session["id_usuario"] = null;
-      FWPConfiguration.OnSessionStart(Session.SessionID);
-
-      Response.Redirect("Default.aspx");
+      catch (Exception ex)
+      {
+        Mensajes.Error(ex.Message);
+      }
     }
-    public void menuCambiarFondo_Click(object sender, DirectEventArgs e)
+    /// <summary>
+    /// Metodo que Cierra la Sesion del Usuario, guardando la informacion de cuando cerro la sesion y volviendo al login de usuario
+    /// </summary>
+    [DirectMethod(Namespace = "Principal")]
+    public void CerrarSesion()
     {
-      Random ran = new Random();
-      int fondo = ran.Next(1,12);
-      dskPrincipal.DesktopConfig.Wallpaper = "Images/wallpapers/fondo" + fondo.ToString() + ".jpg";
-    }
+      try
+      {
+        //registro cuando cerro sesion
+        int idUsuario = FWPConfiguration.get_ID_User(Session.SessionID);
+        co_ca_usuarios usuario = new bf_ca_usuarios().GetData(idUsuario);
+        if (usuario != null)
+        {
+          usuario.usua_ultimaconexion.Fecha = DateTime.Now;
+          new bf_ca_usuarios().Save(usuario);
+        }
 
+        FWPConfiguration.OnSessionEnd(Session.SessionID);
+        Session["id_usuario"] = null;
+        FWPConfiguration.OnSessionStart(Session.SessionID);
+
+        Response.Redirect("Default.aspx");
+      }
+      catch (Exception ex)
+      {
+        Mensajes.Error(ex.Message);
+      }
+    }
+    /// <summary>
+    /// Crea Una Nueva Ventana de Windows Asociado al Escritorio
+    /// </summary>
+    /// <param name="titulo">Titulo de la pagina del windows</param>
+    /// <param name="url">URL que se abrira en la nueva ventana de windows</param>
+    /// <param name="id">id unico que se dispone para cada ventana de window</param>
+    /// <param name="icono">Icono Disponible para la Nueva Ventana (#Application es el Icono por Defecto)</param>
+    [DirectMethod(Namespace = "Principal")]
+    public void OpenNewWindow(string titulo, string url, string id, string icono = "#Application")
+    {
+      try
+      {
+        Window win = new Window();
+        win.Title = titulo;
+        win.Loader = new ComponentLoader(new ComponentLoader.Config { Mode = LoadMode.Frame, Url = url });
+        win.Maximized = false;
+        win.Minimizable = true;
+        win.ID = "WIN_" + id;
+        win.IconCls = icono;
+        win.MinWidth = 900;
+        win.MinHeight = 500;
+        UserControl uc = new UserControl();
+        uc.ID = "MH_" + id;
+
+
+        win.ContentControls.Add(uc);
+
+
+        dskPrincipal.CreateWindow(win);
+      }
+      catch (Exception ex)
+      {
+        Mensajes.Error(ex.Message);
+      }
+    }
+    [DirectMethod(Namespace = "Principal")]
+    public void OpenNewWindow2(string titulo, string url, string id, string icono = "#Application")
+    {
+      try
+      {
+        Window win = new Window();
+        win.Title = titulo;
+        win.Loader = new ComponentLoader(new ComponentLoader.Config { Mode = LoadMode.Frame, Url =  url });
+        win.Maximized = false;
+        win.Minimizable = true;
+        win.ID = "WIN_" + id;
+        win.IconCls = icono;
+        win.MinWidth = 900;
+        win.MinHeight = 500;
+        UserControl uc = new UserControl();
+        uc.ID = "MH_" + id;
+
+
+        win.ContentControls.Add(uc);
+
+
+        dskPrincipal.CreateWindow(win);
+      }
+      catch (Exception ex)
+      {
+        Mensajes.Error(ex.Message);
+      }
+    }
+    /// <summary>
+    /// Carga los Perfiles Disponibles para cada Usuario.
+    /// </summary>
+    [DirectMethod(Namespace = "Principal")]
     protected void CargaPerfiles(object sender, DirectEventArgs eventArgs)
     {
       try
@@ -265,8 +312,6 @@ namespace Administrador
         Mensajes.Error(ex.Message);
       }
     }
-
-    #region DirectMethods
     [DirectMethod(Namespace = "Principal")]
     protected void OnCheckedChangedPerfil(object sender, DirectEventArgs eventArgs)
     {
@@ -282,6 +327,12 @@ namespace Administrador
         Mensajes.Error(ex.Message);
       }
     }
-    #endregion
+
+    public void menuCambiarFondo_Click(object sender, DirectEventArgs e)
+    {
+      Random ran = new Random();
+      int fondo = ran.Next(1, 12);
+      dskPrincipal.DesktopConfig.Wallpaper = "Resources/Images/wallpapers/fondo" + fondo.ToString() + ".jpg";
+    }
   }
 }

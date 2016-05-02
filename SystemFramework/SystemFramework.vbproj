@@ -275,12 +275,6 @@
   <ItemGroup>
     <Folder Include="My Project\" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="bin\Fwp.SystemFramework.dll" />
-    <Content Include="bin\Fwp.SystemFramework.pdb" />
-    <Content Include="bin\Fwp.SystemFramework.xml" />
-    <Content Include="bin\FwpServerControls.dll" />
-  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <PropertyGroup>
     <PreBuildEvent>
