@@ -20,7 +20,7 @@
         <ext:FormPanel runat="server" Layout="FormLayout" Icon="Laptop" Title="Inicio de Sesión">
           <FieldDefaults MsgTarget="Under" AllowBlank="False"/>
           <Items>
-            <ext:TextField runat="server" FieldLabel="Nombre Usuario" Icon="User" MaxLength="50" EnforceMaxLength="True" ID="txtUsuario">
+            <ext:TextField runat="server" FieldLabel="Nombre Usuarios" Icon="User" MaxLength="50" EnforceMaxLength="True" ID="txtUsuario">
               <DirectEvents>
                 <Blur OnEvent="txtUsuario_Blur">
                   <EventMask ShowMask="True" Msg="Cargando..." MinDelay="1000"></EventMask>
