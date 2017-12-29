@@ -98,13 +98,11 @@
     <DebugType>none</DebugType>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="FwpServerControls, Version=1.0.3807.32556, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Program Files\MacalPlataforma\AsistentePLG2010\FwpServerControls.dll</HintPath>
+    <Reference Include="FwpServerControls">
+      <HintPath>ReferenciasExternas\FwpServerControls.dll</HintPath>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=0.85.5.452, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\Program Files\MacalPlataforma\AsistentePLG2010\ICSharpCode.SharpZipLib.dll</HintPath>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>ReferenciasExternas\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="System">
       <Name>System</Name>
